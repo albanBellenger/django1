@@ -1,5 +1,8 @@
 # Register your models here.
 
+
+# Comment was forgotten
+
 from django.contrib import admin
 from polls.models import Choice, Question
 

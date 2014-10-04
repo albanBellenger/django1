@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add question for poll</title>
+    </head>
+
+    <body>
+        <h1>Add a Question</h1>
+
+        <form id="question_form" method="post" action="/polls/add_question/">
+
+            {% csrf_token %}
+            {% for hidden in question_form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in question_form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}
+            {% endfor %}
+
+
+
+
+
+            <input type="submit" name="submit" value="Add Question" />
+        </form>
+    </body>
+
+</html>
