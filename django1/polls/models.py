@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+#from geography.model import Zipcode
 
 # Create your models here.
 class Question(models.Model):

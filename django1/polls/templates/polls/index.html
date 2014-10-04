@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-Cool
+{% extends 'polls/base.html' %}
+
+{% block body_block %}
+
+Cool |  {% if user.is_authenticated %}
+<a href="/polls/add_question/">Add a New Question</a> |
+<a href="/polls/logout/">Logout</a>
+{% else %}
+<a href="/polls/login/">Login</a>
+{% endif %} |
+
+
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
@@ -16,5 +20,4 @@ Cool
     <p>No polls are available.</p>
 {% endif %}
 
-</body>
-</html>
+{% endblock %}

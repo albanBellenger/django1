@@ -5,10 +5,13 @@
     <title></title>
 </head>
 <body>
+
+{% if user.is_authenticated %}
+
+
 <h1>{{ question.question_text }}</h1>
-
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
+{{ colo }}
 <form action="{% url 'polls:vote' question.id %}" method="post">
 {% csrf_token %}
 {% for choice in question.choice_set.all %}
@@ -16,6 +19,10 @@
     <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
 {% endfor %}
 <input type="submit" value="Vote" />
+{% else %}
+<h1>You are not logged</h1>
+{% endif %}
+
 </form>
 </body>
 </html>

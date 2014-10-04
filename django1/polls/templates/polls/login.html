@@ -1,0 +1,16 @@
+{% extends 'polls/base.html' %}
+
+{% block body_block %}
+        <h1>Login to Polls</h1>
+   <div class="container">
+        <form id="login_form"  class="form-signin" method="post" action="/polls/login/">
+            {% csrf_token %}
+            Username: <input type="text"  class="form-control" name="username" value="" size="50" />
+            <br />
+            Password: <input type="password" class="form-control" name="password" value="" size="50" />
+            <br />
+
+            <input type="submit" class="tn btn-lg btn-primary btn-block" value="submit" />
+        </form>
+</div>
+{% endblock %}
